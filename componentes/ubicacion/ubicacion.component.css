@@ -1,0 +1,109 @@
+.ubicaciones-container {
+  margin: 20px auto;
+  width: 100%;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border: 1px solid black;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+  color: black; /* Asegura que el texto de las celdas sea negro */
+}
+
+th {
+  background-color: #f2f2f2;
+  color: black; /* Asegura que el texto del encabezado sea negro */
+}
+
+td {
+  margin: 0px;
+  color: black; /* Asegura que el texto de las celdas sea negro */
+}
+
+#titulo {
+  text-align: center;
+  color: black; /* Asegura que el texto del título sea negro */
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+.thumb-wrapper {
+  padding: 10px;
+}
+
+.thumb-content {
+  text-align: center;
+  color: black; /* Asegura que el texto del contenido del thumbnail sea negro */
+}
+
+.ubicacion-form {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.ubicacion-form label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: black;
+}
+
+.ubicacion-form .form-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: black;
+}
+
+.ubicacion-form button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.ubicacion-form button:hover {
+  background-color: #45a049;
+}
+
+.ubicacion-form h2 {
+  text-align: center;
+  color: black;
+  margin-bottom: 20px;
+}
+
+
+.image-url {
+  margin: 10px 0;
+  width: 100%;
+  max-width: 400px; 
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+* {
+  color: black !important;
+}

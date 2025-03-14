@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css?family=Corben:700');
+
+/* Variables (convertidas a valores fijos en CSS) */
+:root {
+  --perspective: 60rem;
+  --font-size: 4.25rem;
+  --split-position: 50%; /* Ajuste del 49% al 50% para mejor alineación */
+  --split-thickness: 4px;
+  --split-color: #FF2C75;
+  --hover-background-color: #333333; /* Color de fondo al pasar el mouse */
+  --hover-text-color: #FFFFFF; /* Color del texto al pasar el mouse */
+}
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f7f7;
+}
+
+.header-container {
+  background-color: #0fb6d3;
+  padding: 10px 0;
+  text-align: center; 
+  border-bottom: 2px solid #000000; 
+}
+
+.logo-container {
+  margin-bottom: 10px; 
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; 
+  background-color: #0fb6d3;
+}
+
+.navbar a {
+  color: #fcfcfc; 
+  text-decoration: none;
+  padding: 14px 20px;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 30px; /* Añadir margen más amplio entre los enlaces */
+  position: relative; /* Necesario para la animación */
+  overflow: hidden; /* Ocultar el desbordamiento para la animación */
+  cursor: pointer;
+  display: flex; /* Usar flexbox para centrar el contenido */
+  align-items: center; /* Centrar verticalmente */
+  justify-content: center; /* Centrar horizontalmente */
+  height: 60px; /* Altura fija para evitar superposición */
+  transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios de color */
+}
+
+.navbar a:hover {
+  background-color: var(--hover-background-color);
+  color: var(--hover-text-color);
+  border-radius: 5px;
+}
+
+.navbar a::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: var(--split-position);
+  left: 0;
+  right: 0;
+  height: var(--split-thickness);
+  background: var(--split-color);
+  transform: scaleX(0);
+  transition: transform 0.8s cubic-bezier(0.16, 1.08, 0.38, 0.98);
+}
+
+.navbar a .Mask {
+  position: absolute;
+  width: 100%;
+  height: var(--split-position);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.8s cubic-bezier(0.16, 1.08, 0.38, 0.98);
+}
+
+.navbar a .Mask span {
+  position: relative;
+  color: var(--split-color);
+  transition: transform 0.8s cubic-bezier(0.16, 1.08, 0.38, 0.98);
+}
+
+.navbar a .Mask + .Mask {
+  top: var(--split-position);
+  height: calc(100% - var(--split-position));
+}
+
+.navbar a .Mask + .Mask span {
+  transform: translateY(calc(var(--split-position) * -1));
+}
+
+.navbar a:hover::before {
+  transform: scaleX(1);
+}
+
+.navbar a:hover .Mask span {
+  color: var(--hover-text-color);
+}
+
+.navbar a:hover .Mask:first-of-type span {
+  transform: translateY(-100%);
+}
+
+.navbar a:hover .Mask:last-of-type span {
+  transform: translateY(100%);
+}
+
+.logo_corp {
+  height: 15%;
+  width: 15%; 
+  transition: transform 0.8s ease-in-out; 
+}
+
+.logo_corp:hover {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.container {
+  padding: 20px;
+  
+  color: #ffffff; 
+  
+  border-radius: 10px; 
+  margin: 20px auto; 
+  max-width: 1200px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .navbar a {
+    padding: 50%;
+    width: 50%;
+    box-sizing: border-box;
+  }
+
+  .logo_corp {
+    margin: 5px 0;
+  }
+}

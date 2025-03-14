@@ -1,0 +1,87 @@
+<div class="container-xl productos-container">
+  <h2>Lista de Productos</h2>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  <input type="text" [(ngModel)]="filter" class="form-control mb-3" placeholder="Buscar productos...">
+
+  <table class="table productos-table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Imagen</th>
+        <th scope="col">Edición</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos | filter:filter:['nombre', 'tipo']">
+        <td>{{ producto.nombre }}</td>
+        <td>{{ producto.tipo }}</td>
+        <td>{{ producto.precio | currency }}</td>
+        <td>{{ producto.descripcion }}</td>
+        <td class="img-cell">
+          <img [src]="producto.imagen_pro" alt="{{ producto.nombre }}" class="img-fluid">
+        </td>
+        <td>
+          <button (click)="editProducto(producto)" class="btn btn-warning btn-action edit">Editar</button>
+          <button (click)="deleteProducto(producto.comp_id)" class="btn btn-danger btn-action delete">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!editingProducto">
+    <h3>Crear Producto</h3>
+    <form (ngSubmit)="createProducto()" class="product-form">
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" [(ngModel)]="newProducto.nombre" name="nombre" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="tipo">Tipo:</label>
+        <input type="text" id="tipo" [(ngModel)]="newProducto.tipo" name="tipo" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" [(ngModel)]="newProducto.precio" name="precio" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" [(ngModel)]="newProducto.descripcion" name="descripcion" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="imagen_pro">URL de la Imagen:</label>
+        <input type="text" id="imagen_pro" [(ngModel)]="newProducto.imagen_pro" name="imagen_pro" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-success">Crear Producto</button>
+    </form>
+  </div>
+
+  <div *ngIf="editingProducto">
+    <h3>Editar Producto</h3>
+    <form (ngSubmit)="updateProducto(editingProducto.comp_id)" class="product-form">
+      <div class="form-group">
+        <label for="nombre-edit">Nombre:</label>
+        <input type="text" id="nombre-edit" [(ngModel)]="editingProducto.nombre" name="nombre-edit" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="tipo-edit">Tipo:</label>
+        <input type="text" id="tipo-edit" [(ngModel)]="editingProducto.tipo" name="tipo-edit" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="precio-edit">Precio:</label>
+        <input type="number" id="precio-edit" [(ngModel)]="editingProducto.precio" name="precio-edit" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="descripcion-edit">Descripción:</label>
+        <input type="text" id="descripcion-edit" [(ngModel)]="editingProducto.descripcion" name="descripcion-edit" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="imagen_pro-edit">URL de la Imagen:</label>
+        <input type="text" id="imagen_pro-edit" [(ngModel)]="editingProducto.imagen_pro" name="imagen_pro-edit" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    </form>
+  </div>
+</div>

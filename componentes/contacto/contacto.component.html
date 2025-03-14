@@ -1,0 +1,23 @@
+<!-- contacto.component.html -->
+<div class="page-container">
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <div class="contact-container">
+        <h1>Atención al cliente</h1>
+        <h2>Comuníquese con nosotros</h2>
+        <p>Tel. 4491184056</p>
+        <p>
+            Correo de contacto: 
+            <button (click)="copiarAlPortapapeles('velasco12bigchis@gmail.com')" 
+                    (mouseover)="onMouseOver()" 
+                    (mouseout)="onMouseOut()">
+                Copiar correo
+            </button>
+        </p>
+        <p>Redes sociales: 
+            <a href="https://www.facebook.com/JavierVelascoSANTILLAN" target="_blank">Facebook</a>
+        </p>
+    </div>
+</div>

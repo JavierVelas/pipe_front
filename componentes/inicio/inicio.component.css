@@ -1,0 +1,98 @@
+
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  text-align: center;
+  width: 90%;
+  max-width: 1200px;
+  z-index: 1;
+  position: relative;
+  padding: 40px;
+ 
+  border-radius: 15px;
+
+  margin: 20px;
+}
+
+h1 {
+  font-size: 3em;
+  color: #000000;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  font-size: 2em;
+  color: #000000;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+p {
+  font-size: 1.5em;
+  color: #000000;
+  margin: 20px auto;
+  width: 80%;
+  line-height: 1.8;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  margin: 40px auto;
+  position: relative;
+  border-radius: 10%;
+
+}
+
+.carousel {
+  display: flex;
+  animation: slideAnimation 30s infinite;
+}
+
+.slide {
+  min-width: 100%;
+  transition: transform 0.5s ease;
+}
+
+img {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes slideAnimation {
+  0% { transform: translateX(0); }
+  16.66% { transform: translateX(0); }
+  20% { transform: translateX(-100%); }
+  36.66% { transform: translateX(-100%); }
+  40% { transform: translateX(-200%); }
+  56.66% { transform: translateX(-200%); }
+  60% { transform: translateX(-300%); }
+  76.66% { transform: translateX(-300%); }
+  80% { transform: translateX(-400%); }
+  96.66% { transform: translateX(-400%); }
+  100% { transform: translateX(0); }
+}

@@ -1,0 +1,175 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #080710; /* Color de fondo para toda la página */
+}
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+  position: relative;
+}
+
+.background {
+  width: 430px;
+  height: 520px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.background .shape {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  border-radius: 50%;
+  animation: float 10s ease-in-out infinite;
+}
+
+.shape:first-child {
+  background: linear-gradient(#1845ad, #23a2f6); /* Gradiente para la primera forma */
+  left: -80px;
+  top: -80px;
+}
+
+.shape:last-child {
+  background: linear-gradient(to right, #ff512f, #f09819); /* Gradiente para la segunda forma */
+  right: -30px;
+  bottom: -80px;
+}
+
+.login-container {
+  width: 400px;
+  background-color: rgba(80, 104, 165, 0.75); /* Fondo semitransparente oscuro */
+  position: relative;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  padding: 50px 35px;
+  color: #ffffff; /* Color del texto dentro del contenedor de inicio de sesión */
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff; /* Color para el encabezado */
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ffffff; /* Color de las etiquetas */
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente para los campos de entrada */
+  border-radius: 3px;
+  border: none;
+  font-size: 14px;
+  font-weight: 300;
+  color: #ffffff; /* Color del texto en los campos de entrada */
+  box-sizing: border-box;
+  margin-top: 8px;
+  outline: none;
+}
+
+.form-group input::placeholder {
+  color: #e5e5e5; /* Color del texto de placeholder */
+}
+
+.form-group input:focus {
+  border: 1px solid #007bff; /* Color del borde al enfocar */
+}
+
+.login-button {
+  width: 100%;
+  padding: 15px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffffff; /* Color de fondo del botón */
+  color: #080710; /* Color del texto del botón */
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 50px;
+}
+
+.login-button:hover {
+  background-color: #f1f1f1; /* Color de fondo del botón al pasar el mouse */
+}
+
+.error-message {
+  color: red; /* Color del mensaje de error */
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.forgot-password-link {
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+  color: #030303; /* Color del enlace */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.forgot-password-link:hover {
+  color: #feffff; /* Color del enlace al pasar el mouse */
+}
+
+.social {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.social div {
+  background: rgba(255, 255, 255, 0.27); /* Fondo semitransparente para los botones sociales */
+  width: 48%;
+  border-radius: 3px;
+  padding: 5px 10px;
+  color: #eaf0fb; /* Color del texto para los botones sociales */
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.social div:hover {
+  background-color: rgba(255, 255, 255, 0.47); /* Fondo semitransparente al pasar el mouse */
+}
+
+.social i {
+  margin-right: 4px;
+}
+
+/* Animación de los círculos */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}

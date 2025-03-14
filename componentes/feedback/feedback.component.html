@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Formulario</title>
+    <link rel="stylesheet" href="feedback.component.css">
+</head>
+<body>
+    <div class="page-container">
+        <div class="background">
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <div class="fb-container">
+            <h2>Envianos cualquier sugerencia o recomendación</h2>
+            <div *ngIf="error" class="error-message">{{ error }}</div>
+            <div class="feedback-list-container">
+                <ul>
+                    <li *ngFor="let feedback of feedbacks" class="row">
+                        <div class="col">
+                            <h3>{{ feedback.titulo }}</h3>
+                            <p class="text-content">{{ feedback.texto }}</p> <!-- Aplicar clase aquí -->
+                        </div>
+                        <div class="col">
+                            <button (click)="editFeedback(feedback)" class="btn btn-warning">Editar</button>
+                            <button (click)="deleteFeedback(feedback.fb_id)" class="btn btn-danger">Eliminar</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div *ngIf="!editingFeedbacks">
+                <h3>Proporcionanos tu retroalimentación</h3>
+                <form (ngSubmit)="createFeedback()" class="row">
+                    <div class="col-50">
+                        <label for="titulo">Titulo:</label>
+                        <input type="text" id="titulo" [(ngModel)]="newFeedback.titulo" name="titulo" required>
+                    </div>
+                    <div class="col-50">
+                        <label for="texto">Idea:</label>
+                        <textarea id="texto" [(ngModel)]="newFeedback.texto" name="texto" required></textarea>
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-success">Mandar feedback</button>
+                    </div>
+                </form>
+            </div>
+
+            <div *ngIf="editingFeedbacks">
+                <h3>Editar Feedback</h3>
+                <form (ngSubmit)="updateFeedback()" class="row">
+                    <div class="col-50">
+                        <label for="editTitulo">Actualizar titulo:</label>
+                        <input type="text" id="editTitulo" [(ngModel)]="editingFeedbacks.titulo" name="editTitulo" required>
+                    </div>
+                    <div class="col-50">
+                        <label for="editTexto">Actualizar idea:</label>
+                        <textarea id="editTexto" [(ngModel)]="editingFeedbacks.texto" name="editTexto" required></textarea>
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-success">Guardar Cambios</button>
+                        <button type="button" (click)="cancelEdit()" class="btn btn-secondary">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

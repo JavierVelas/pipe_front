@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Corben:700');
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f7f7;
+  }
+
+.navbar {
+    background-color:#FFFFFF;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #70A4C2;
+}
+
+.highlight {
+    background-color: transparent; 
+}
+
+
+
+
+
+
+

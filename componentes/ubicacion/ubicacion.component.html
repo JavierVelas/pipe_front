@@ -1,0 +1,57 @@
+<div class="container-xl ubicaciones-container">
+  <h2 id="titulo">Lista de Ubicaciones</h2>
+  <div *ngIf="error" class="error-message">{{ error }}</div>
+  <table>
+    <tr></tr>
+    <tr *ngFor="let ubicacion of ubicaciones; let i = index">
+      <td>
+        <div class="thumb-wrapper">
+          <div class="thumb-content">
+            <h4>{{ ubicacion.nombre }}</h4>
+            <p><strong>Dirección:</strong> {{ ubicacion.direccion }}</p>
+            <div>
+              <img [src]="ubicacion.imagen_ubi" alt="{{ ubicacion.nombre }}" class="ubicacion-imagen">
+            </div>
+            <div>
+              <button (click)="editUbicacion(ubicacion)" class="btn btn-warning">Editar</button>
+              <button (click)="deleteUbicacion(ubicacion.ubi_id)" class="btn btn-danger">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div *ngIf="!editingUbicacion">
+    <h3>Crear Ubicación</h3>
+    <form (ngSubmit)="createUbicacion()" enctype="multipart/form-data" class="ubicacion-form">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" [(ngModel)]="newUbicacion.nombre" name="nombre" class="form-control" required><br>
+      
+      <label for="direccion">Dirección:</label>
+      <input type="text" id="direccion" [(ngModel)]="newUbicacion.direccion" name="direccion" class="form-control" required><br>
+      
+      <label for="imagen_ubi">URL de la Imagen:</label>
+      <input type="text" id="imagen_ubi" [(ngModel)]="newUbicacion.imagen_ubi" name="imagen_ubi" class="form-control" required><br>
+      
+      <button type="submit" class="btn btn-success">Crear Ubicación</button>
+    </form>
+  </div>
+
+  <div *ngIf="editingUbicacion">
+    <h3>Editar Ubicación</h3>
+    <form (ngSubmit)="updateUbicacion(editingUbicacion.ubi_id)" enctype="multipart/form-data" class="ubicacion-form">
+      <label for="editNombre">Nombre:</label>
+      <input type="text" id="editNombre" [(ngModel)]="editingUbicacion.nombre" name="editNombre" class="form-control" required><br>
+      
+      <label for="editDireccion">Dirección:</label>
+      <input type="text" id="editDireccion" [(ngModel)]="editingUbicacion.direccion" name="editDireccion" class="form-control" required><br>
+      
+      <label for="editImagenUbi">URL de la Imagen:</label>
+      <input type="text" id="editImagenUbi" [(ngModel)]="editingUbicacion.imagen_ubi" name="editImagenUbi" class="form-control" required><br>
+      
+      <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+      <button type="button" (click)="cancelEdit()" class="btn btn-secondary">Cancelar</button>
+    </form>
+  </div>
+</div>

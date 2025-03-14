@@ -1,0 +1,187 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  position: relative;
+}
+
+.background {
+  width: 800px; /* Aumentado el ancho */
+  height: 900px; /* Aumentado la altura */
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+.background .shape {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  border-radius: 50%;
+  animation: float 10s ease-in-out infinite;
+}
+
+.fb-container {
+  width: 1200px; /* Aumentado el ancho */
+  height: 1000px; /* Aumentado la altura */
+  background-color: rgba(80, 104, 165, 0.75); /* Fondo semitransparente oscuro */
+  position: relative;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  padding: 80px 80px; /* Aumentado el padding */
+  color: #ffffff; /* Color del texto dentro del contenedor de feedback */
+  margin: 20px auto;
+  overflow: hidden; /* Oculta el contenido desbordado */
+}
+
+.feedback-list-container {
+  height: calc(80% - 250px); /* Ajustado para dejar espacio a los formularios */
+  overflow-y: auto; /* Desplazamiento vertical automático */
+}
+
+.fb-container h2, .fb-container h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff; /* Color para el encabezado */
+  font-size: 32px;
+  font-weight: 500;
+  font-family: 'Open Sans', Arial, sans-serif; /* Fuente para encabezados */
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #ffffff; /* Color de las etiquetas */
+  font-size: 16px;
+  font-weight: 500;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  padding: 15px; /* Aumentado el padding */
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente para los campos de entrada */
+  border-radius: 5px; /* Aumentado el radio de borde */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 16px; /* Aumentado el tamaño de fuente */
+  font-weight: 300;
+  color: #ffffff; /* Color del texto en los campos de entrada */
+  box-sizing: border-box;
+  margin-top: 8px;
+  outline: none;
+}
+
+textarea {
+  height: 150px; /* Altura inicial */
+  resize: both; /* Permitir redimensionamiento en ambas direcciones */
+}
+
+input[type="text"]::placeholder, textarea::placeholder {
+  color: #e5e5e5; /* Color del texto de placeholder */
+}
+
+input[type="text"]:focus, textarea:focus {
+  border: 1px solid #007bff; /* Color del borde al enfocar */
+}
+
+button {
+  width: 100%;
+  padding: 20px 0; /* Aumentado el padding */
+  border: none;
+  border-radius: 5px;
+  background-color: #ffffff; /* Color de fondo del botón */
+  color: #080710; /* Color del texto del botón */
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #f1f1f1; /* Color de fondo del botón al pasar el mouse */
+}
+
+.error-message {
+  color: red; /* Color del mensaje de error */
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: column; 
+  margin: 10px 0;
+}
+
+.col {
+  padding: 10px;
+}
+
+.col-50 {
+  width: 50%;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: none;
+  font-size: 16px;
+  color: rgb(13, 13, 13);
+}
+
+.btn-warning {
+  background-color: #f0ad4e;
+}
+
+.btn-warning:hover {
+  background-color: #ec971f;
+}
+
+.btn-danger {
+  background-color: #d9534f;
+}
+
+.btn-danger:hover {
+  background-color: #c9302c;
+}
+
+.btn-success {
+  background-color: #5cb85c;
+}
+
+.btn-success:hover {
+  background-color: #4cae4c;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.text-content {
+  white-space: pre-wrap; /* Asegura que los saltos de línea se respeten */
+  word-wrap: break-word; /* Rompe las palabras largas para ajustarse al contenedor */
+  width: 100%; /* Asegura que el contenedor del texto tome todo el ancho disponible */
+  max-width: 800px; /* Máximo ancho para controlar el ajuste del texto */
+  overflow-wrap: break-word; /* Asegura el ajuste de palabras largas */
+}

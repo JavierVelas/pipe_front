@@ -1,0 +1,43 @@
+layout.component.html
+<header>
+  <div class="header-container">
+    <div class="logo-container">
+      <img class="logo_corp" src="../assets/img/logo_pagina.png" alt="logo">
+    </div>
+    <nav class="navbar">
+      <a class="Menu-list-item" [routerLink]="'/login'">Cerrar Sesión
+        <span class="Mask"><span>Cerrar Sesión</span></span>
+       
+      </a>
+      <a class="Menu-list-item" [routerLink]="'/inicio'">Inicio
+        <span class="Mask"><span>Inicio</span></span>
+        
+      </a>
+      <a class="Menu-list-item" [routerLink]="'/productos'">Componentes
+        <span class="Mask"><span>Componentes</span></span>
+        
+      </a>
+      <a class="Menu-list-item" [routerLink]="'/ubicacion'">Locales trabajando con Arduino
+        <span class="Mask"><span>Locales trabajando con Arduino</span></span>
+       
+      </a>
+      <a class="Menu-list-item" [routerLink]="'/nosotros'">Sobre Nosotros
+        <span class="Mask"><span>Sobre Nosotros</span></span>
+      
+      </a>
+      <a class="Menu-list-item" [routerLink]="'/contacto'">Contacto y Redes sociales
+        <span class="Mask"><span>Contacto y Redes sociales</span></span>
+        
+      </a>
+      <a class="Menu-list-item" [routerLink]="'/feedback'">Retroalimentación
+        <span class="Mask"><span>Retroalimentación</span></span>
+        
+      </a>
+     
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

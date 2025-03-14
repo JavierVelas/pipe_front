@@ -2,12 +2,153 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Frontend</title>
-  <base href="/">
+  <title>Arduino Knowledge</title>
+  <link rel="icon" type="image/x-icon" href="../assets/img/logo_pagina.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta name="theme-color" content="#1976d2">
+  <link rel="manifest" href="/manifest.webmanifest">
+
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #1976d2;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    #content {
+      padding: 1rem;
+      text-align: center;
+    }
+
+    #dynamic-content {
+      margin-top: 1rem;
+      text-align: left;
+      display: inline-block;
+    }
+
+    button {
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background-color: #145ca6;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      padding: 1rem 0;
+      background-color: #f1f1f1;
+      color: #555;
+    }
+  </style>
+
+  <meta name="theme-color" content="#1976d2">
 </head>
 <body>
+  <header>
+    <h1>Arduino Knowledge</h1>
+  </header>
+
+  <div id="content">
+    <p>Cargando datos...</p>
+    <button id="loadButton">Cargar Información</button>
+    <div id="dynamic-content"></div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Arduino Knowledge. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Lógica del botón (conservada)
+    document.addEventListener('DOMContentLoaded', function () {
+      const contentDiv = document.getElementById('content');
+      const loadButton = document.getElementById('loadButton');
+
+      loadButton.addEventListener('click', function () {
+        contentDiv.innerHTML = `
+          <p>Botón accionado correctamente. Información cargada:</p>
+          <ul>
+            <li>Arduino es una plataforma de desarrollo de hardware.</li>
+            <li>Es ideal para aprender electrónica y programación.</li>
+            <li>Existen múltiples modelos, como Arduino Uno, Nano y Mega.</li>
+          </ul>
+        `;
+
+        // Lógica adicional para obtener datos de la API
+        fetch('https://jsonplaceholder.typicode.com/posts')
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Error al obtener los datos');
+            }
+            return response.json();
+          })
+          .then((data) => {
+            const dynamicContentDiv = document.getElementById('dynamic-content');
+            dynamicContentDiv.innerHTML = `
+              <h2>Publicaciones:</h2>
+              <ul>
+                ${data.map((post) => `<li><strong>${post.title}</strong><br>${post.body}</li>`).join('')}
+              </ul>
+            `;
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+            const dynamicContentDiv = document.getElementById('dynamic-content');
+            dynamicContentDiv.innerHTML = `<p>Error al cargar los datos: ${error.message}</p>`;
+
+            // Verificar si hay datos en la caché
+            caches.match('https://jsonplaceholder.typicode.com/posts')
+              .then((response) => {
+                if (response) {
+                  return response.json();
+                }
+                throw new Error('No hay datos en caché');
+              })
+              .then((data) => {
+                dynamicContentDiv.innerHTML = `
+                  <h2>Publicaciones (desde caché):</h2>
+                  <ul>
+                    ${data.map((post) => `<li><strong>${post.title}</strong><br>${post.body}</li>`).join('')}
+                  </ul>
+                `;
+              })
+              .catch(() => {
+                dynamicContentDiv.innerHTML = `<p>No hay conexión y no hay datos en caché.</p>`;
+              });
+          });
+      });
+
+      // // Registrar el Service Worker
+      // if ('serviceWorker' in navigator) {
+      //   navigator.serviceWorker.register('/service-worker.js')
+      //     .then(function (registration) {
+      //       console.log('Service Worker registrado con éxito:', registration.scope);
+      //     })
+      //     .catch(function (error) {
+      //       console.error('Error al registrar el Service Worker:', error);
+      //     });
+      // }
+    });
+  </script>
   <app-root></app-root>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>
 </html>

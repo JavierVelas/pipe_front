@@ -1,0 +1,99 @@
+/* Estilos para el contenedor principal */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff !important; /* Fondo blanco para toda la página con !important */
+}
+
+
+
+.logo_corp {
+    height: 240px;
+    width: 240px;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.8s ease-in-out;
+}
+.logo_corp:hover {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+}
+
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+h2{
+  color: #000000;
+
+}
+h3{
+  color: #000000;
+}
+p{
+  color: #000000;
+  
+}
+
+/* Estilos para la tabla */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #ffffff; /* Fondo blanco para la tabla */
+}
+
+.custom-table th, .custom-table td {
+  padding: 10px;
+  text-align: left;
+  
+}
+
+.custom-table th {
+  background-color: #333;
+  color: white;
+  border-bottom: none; /* Oculta la línea de la cabecera */
+}
+
+.custom-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Estilos específicos para las celdas de Misión y Visión */
+.custom-table td {
+  color: #000000; /* Color del texto negro */
+}
+
+.about-container {
+  background-color: #ffffff; 
+  padding: 20px;
+  border-radius: 10px;
+  
+  max-width: 800px;
+  margin: 20px auto; 
+}
+
+/* Estilos para las imágenes de ubicaciones */
+.ubicaciones-list img {
+  transition: transform 0.5s ease-in-out; /* Transición suave para la animación */
+}
+
+.ubicaciones-list img:hover {
+  transform: scale(1.1) rotate(10deg); /* Aumentar el tamaño y rotar la imagen al pasar el mouse */
+}
+.ubi_local_maps{
+  width: 45%;
+  height: 25%;
+}
+.ubi_maps{
+  width: 55%;
+  height: 25%;
+}

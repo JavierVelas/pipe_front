@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto</title>
+    <link rel="stylesheet" href="correo.component.css">
+</head>
+<body>
+    <div class="page-container">
+        <div class="background">
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <div class="contact-wrapper">
+            <form class="contact-form" (submit)="sendEmail($event)">
+                <h2>Recuperación de contraseña</h2>
+                <label>Ingrese su Usuario</label>
+
+                <input type="text" name="user_name" placeholder="Usuario">
+                <label>Ingrese su correo</label>
+                
+                <input type="email" name="user_email" placeholder="Correo Electrónico">
+                <input type="submit" value="Enviar">
+                <a class="Menu-list-item" [routerLink]="'/login'">
+                    <span class="text">Regresar</span>
+                    <span class="Mask"><span><i class="bi bi-arrow-return-left"></i></span></span>
+                </a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" [ngClass]="{'show': showModal}">
+        <div class="modal-content">
+            <span class="close" (click)="closeModal()">&times;</span>
+            <p>¡Mensaje enviado exitosamente!</p>
+            <button (click)="closeModal()">Cerrar y redirigir</button>
+        </div>
+    </div>
+</body>
+</html>

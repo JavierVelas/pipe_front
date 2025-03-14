@@ -1,0 +1,63 @@
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #f8f9fa;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+.error-page h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+  color: #e74c3c;
+}
+
+.error-page p {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+.error-page a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+.error-page a:hover {
+  text-decoration: underline;
+}
+
+.error-page form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.error-page input[type="text"] {
+  padding: 0.5em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  margin-right: 0.5em;
+}
+
+.error-page button {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+}
+
+.error-page button:hover {
+  background-color: #2980b9;
+}
